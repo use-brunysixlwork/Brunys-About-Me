@@ -1,59 +1,86 @@
-<html><head>
+<html>
+<head>
     <!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-G2VDG9B35C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G2VDG9B35C');
-</script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-G2VDG9B35C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-G2VDG9B35C');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brunys</title>
-    <link rel="icon" type="image/x-icon" href="brunyssonicpfp.ico">
+    <link rel="icon" type="image/x-icon" href="/images/brunyssonicpfp.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <meta property="og:title" content="Brunys, BrunysLOL, Explo4er.">
     <meta property="og:description" content="Learn about: animator, coder, artist and gamer Brunys!">
-    <meta property="og:image" content="/anewbegin.png">
+    <meta property="og:image" content="/images/nms.jpg">
     <meta property="og:image:width" content="100">
     <meta property="og:image:height" content="100">
     <meta property="og:url" content="https://brunys.site">
     <meta name="theme-color" content="#cf873b">
     <meta name="msapplication-TileColor" content="#cf873b">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-    <div class="overlay" id="overlay">Click To Enter</div>
+    <div id="particles-js"></div>
+  
+    <div class="enter-overlay" id="enterOverlay">
+      <p>Click to Enter</p>
+    </div>
+  
+    <div class="about-container">
+      <img class="profile" src="/images/nms.jpg">
+      <h2 style="color: #485ee9;">𝘽𝙧𝙪𝙣𝙮𝙨</h2>
+      <h4>Hi I am Brunys! I would say im pretty cool! I know the coding languages below, I have made several projects like Unblocked Games, Music, Animation, and more stuff. My main links are the icons below. Im good at Art, Coding, Animating and fnf. Thats really it. Have a nice life! I also like venom.</h4>
     
-    <div class="box" id="content-box">
-        <img src="brunyssonicpfp.jpeg" alt="bruny">
-        <p>𝘽𝙧𝙪𝙣𝙮𝙨</p>
-        <p>Hi I am Brunys! I would say im pretty cool! I know the coding languages below, I have made several projects like Unblocked Games, Music, Animation, And more stuff. My main links are <a href="https://brunys.site">this one</a> and <a href="https://ixl.brunys.site">this one!</a> Im good at Art, Coding, Animating and fnf. Thats really it. Have a nice life! I also like venom.</p>
-        <div class="small-images">
-            <img src="html.png" alt="HTML">
-            <img src="css.svg" alt="CSS">
-            <img src="js.png" alt="JS">
-            <img src="python.png" alt="PYTHON">
-            <img src="lua.svg" alt="LUA">
-        </div>
+      <div class="image-group">
+        <img src="/images/css.svg">
+        <img src="/images/js.png">
+        <img src="/images/python.png">
+        <img src="/images/html.png">
+        <img src="/images/lua.svg">
+      </div>
+    
+      <hr>
+    
+      <div class="social-icons">
+          <a href="https://dsc.gg/bruny" target="_blank"><i class="fa-brands fa-discord"></i></a>
+          <a href="https://tiktok.com/@brunys.site" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://ixl.brunys.site" target="_blank"><i class="fa-solid fa-gamepad"></i></a>
+          <a href="https://www.youtube.com/@brunys1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      </div>
 
-        <hr>
+      <br>
 
-        <div class="social-icons">
-            <a href="https://dsc.gg/bruny" target="_blank"><i class="fa-brands fa-discord"></i></a>
-            <a href="https://tiktok.com/@brunys.site" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://ixl.brunys.site" target="_blank"><i class="fa-solid fa-gamepad"></i></a>
-            <a href="https://www.youtube.com/@brunys1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        </div>
+      <select id="mp3Selector">
+        <option value="/music/talk down.mp3">Talk Down</option>
+        <option value="/music/mary.mp3">Mary</option>
+        <option value="/music/dryyoureyes.mp3">Dry Your Eyes</option>
+        <option value="/music/icantfixyou.mp3">I Cant Fix You</option>
+        <option value="/music/borntopwn.mp3">Born To Pwn</option>
+        <option value="/music/shucks.mp3">Aw Shucks</option>
+        <option value="/music/likehim.mp3">Like Him</option>
+        <option value="/music/alonetime.mp3">Alone Time</option>
+        <option value="/music/anewkindoflove.mp3">A New Kind Of Love</option>
+        <option value="/music/tekit.mp3">Tek It</option>
+        <option value="/music/memories.mp3">Memories</option>
+        <option value="/music/resonancexdoyalike.mp3">Resonance X Do Ya Like</option>
+      </select>
+
+      <br>
+
+      <label for="volumeControl">Volume: </label>
+      <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
     </div>
 
-    <audio id="audio" src="talk down.mp3"></audio> 
+    <audio id="bg-audio" src="/talk down.mp3" loop></audio>
 
-    <script src="script.js"></script> 
-
-
-</body></html>
+    <script src="/script.js"></script> 
+</body>
+</html>
