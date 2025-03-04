@@ -108,18 +108,19 @@ select {
   appearance: none;
   width: 20px;
   height: 20px;
-  background: #161d48;
+  background: #000;
+  border: 2px solid #fff;
   border-radius: 50%;
   cursor: pointer;
 }
 #volumeControl::-moz-range-thumb {
   width: 20px;
   height: 20px;
-  background: #161d48;
+  background: #000;
   border-radius: 50%;
   cursor: pointer;
 }
 ::selection {
   background-color: #000;
-  color: #161d48;
+  color: #fff;
 }
