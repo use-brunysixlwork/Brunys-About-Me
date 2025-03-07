@@ -81,7 +81,7 @@ hr {
   transition: color 0.3s;
 }
 .social-icons a:hover {
-  color: #485ee9;
+  color: #ccc;
 }
 select {
   margin-top: 10px;
