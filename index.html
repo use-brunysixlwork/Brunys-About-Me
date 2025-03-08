@@ -37,7 +37,7 @@
     <div class="about-container">
       <img class="profile" src="/images/pfp.jpg">
       <h2>𝘽𝙧𝙪𝙣𝙮𝙨</h2>
-      <h4>Hi I am Brunys! I would say im pretty cool! I know the coding languages below, I have made several projects like Unblocked Games, Music, Animation, and more stuff. My main links are the icons below. Im good at Art, Coding, Animating and fnf. Thats really it. Have a nice life! I also like venom.</h4>
+      <h4>Hi I am Brunys! I would say im pretty cool! I know the coding languages below, I have made several projects like Unblocked Games, Music, Animation, and more stuff. My main links are the icons below. Im good at Art, Coding, and Animation. Thats really it. Have a nice life! I also like venom.</h4>
     
       <div class="image-group">
         <img src="/images/css.svg">
@@ -58,7 +58,7 @@
 
       <br>
 
-      <select id="mp3Selector">
+      <select id="mp3Selector" onchange="saveSelection()">
         <option value="/music/talk down.mp3">Talk Down</option>
         <option value="/music/mary.mp3">Mary</option>
         <option value="/music/dryyoureyes.mp3">Dry Your Eyes</option>
@@ -72,8 +72,11 @@
         <option value="/music/memories.mp3">Memories</option>
         <option value="/music/resonancexdoyalike.mp3">Resonance X Do Ya Like</option>
         <option value="/music/imisstheoldpasha.mp3">I Miss The Old Pasha</option>
-      </select>
-
+        <option value="/music/fentation.mp3">Fentation</option>
+        <option value="/music/pride.mp3">Pride</option>
+        <option value="/music/neverseemeagain.mp3">Never See Me Again</option>
+    </select>
+    
       <br>
 
       <label for="volumeControl">Volume: </label>
@@ -83,5 +86,6 @@
     <audio id="bg-audio" src="/talk down.mp3" loop></audio>
 
     <script src="/script.js"></script> 
+    
 </body>
 </html>

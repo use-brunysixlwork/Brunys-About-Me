@@ -38,9 +38,9 @@ body {
 .about-container {
   width: 40vw;
   text-align: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(16, 16, 16, 0.5);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   backdrop-filter: blur(10px);
   position: relative;
   z-index: 1;
