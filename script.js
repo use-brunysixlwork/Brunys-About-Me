@@ -23,6 +23,7 @@ const visualizer = document.getElementById('visualizer');
 const tracks = [
   { name: "🎵 Dry Your Eyes - Twikipedia", file: "/music/dryyoureyes.mp3" },
   { name: "🎵 Talk Down - Twikipedia", file: "/music/talk down.mp3" },
+  { name: "🎵 I Wanna Be The Guy - Twikipedia", file: "/music/iwannabetheguy.mp3" },
   { name: "🎵 I Can't Decide - Scissor Sisters", file: "/music/icantdecide.mp3" },
   { name: "🎵 Mary - Alex G", file: "/music/mary.mp3" },
   { name: "🎵 I Can't Fix You - The Living Tombstone", file: "/music/icantfixyou.mp3" },
