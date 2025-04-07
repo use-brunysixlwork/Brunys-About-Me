@@ -9,146 +9,137 @@ particlesJS("particles-js", {
   }
 });
 
-const audioElement = document.getElementById("bg-audio");
-const mp3Selector = document.getElementById("mp3Selector");
+const splash = document.getElementById('splash');
+const mainContainer = document.getElementById('mainContainer');
+const audio = document.getElementById('audio');
+const progress = document.getElementById('progress');
+const volume = document.getElementById('volume');
+const playPause = document.getElementById('playPause');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const trackSelector = document.getElementById('trackSelector');
+const visualizer = document.getElementById('visualizer');
+
+const tracks = [
+  { name: "🎵 Dry Your Eyes - Twikipedia", file: "/music/dryyoureyes.mp3" },
+  { name: "🎵 Talk Down - Twikipedia", file: "/music/talk down.mp3" },
+  { name: "🎵 I Can't Decide - Scissor Sisters", file: "/music/icantdecide.mp3" },
+  { name: "🎵 Mary - Alex G", file: "/music/mary.mp3" },
+  { name: "🎵 I Can't Fix You - The Living Tombstone", file: "/music/icantfixyou.mp3" },
+  { name: "🎵 Born To Pwn - Twikipedia", file: "/music/borntopwn.mp3" },
+  { name: "🎵 Aw Shucks - Duccly", file: "/music/shucks.mp3" },
+  { name: "🎵 Like Him - Tyler, The Creator", file: "/music/likehim.mp3" },
+  { name: "🎵 Alone Time - Animated James", file: "/music/alonetime.mp3" },
+  { name: "🎵 A New Kind Of Love - Frou Frou", file: "/music/anewkindoflove.mp3" },
+  { name: "🎵 Tek It - Cafune", file: "/music/tekit.mp3" },
+  { name: "🎵 Memories - Maroon 5", file: "/music/memories.mp3" },
+  { name: "🎵 Resonance X Do Ya Like", file: "/music/resonancexdoyalike.mp3" },
+  { name: "🎵 I Miss The Old Pasha - Yung GMS", file: "/music/imisstheoldpasha.mp3" },
+  { name: "🎵 Fentation - Szvy ft. Fent", file: "/music/fentation.mp3" },
+  { name: "🎵 Pride - Kendrick Lamar", file: "/music/pride.mp3" },
+  { name: "🎵 Never See Me Again - Kanye West", file: "/music/neverseemeagain.mp3" }
+];
+
+let currentTrack = parseInt(localStorage.getItem('currentTrack')) || 0;
+let savedTime = parseFloat(localStorage.getItem('currentTime')) || 0;
+let savedVolume = parseFloat(localStorage.getItem('volume')) || 1;
+
+tracks.forEach((track, index) => {
+  const option = document.createElement('option');
+  option.value = index;
+  option.textContent = track.name;
+  trackSelector.appendChild(option);
+});
+trackSelector.value = currentTrack;
+
+function loadTrack(index, restoreTime = false, autoplay = false) {
+  currentTrack = index;
+  audio.src = tracks[index].file;
+  trackSelector.value = index;
+  localStorage.setItem('currentTrack', index);
+
+  audio.onloadedmetadata = () => {
+    if (restoreTime) audio.currentTime = savedTime;
+    if (autoplay) audio.play();
+  };
+}
+
+playPause.addEventListener('click', () => {
+  if (audio.paused) audio.play();
+  else audio.pause();
+});
+
+audio.addEventListener('timeupdate', () => {
+  progress.max = audio.duration || 0;
+  progress.value = audio.currentTime || 0;
+  localStorage.setItem('currentTime', audio.currentTime);
+});
+
+progress.addEventListener('input', () => {
+  audio.currentTime = progress.value;
+});
+
+volume.value = savedVolume;
+audio.volume = savedVolume;
+
+volume.addEventListener('input', () => {
+  audio.volume = volume.value;
+  localStorage.setItem('volume', audio.volume);
+});
+
+nextBtn.addEventListener('click', () => {
+  currentTrack = (currentTrack + 1) % tracks.length;
+  localStorage.setItem('currentTime', 0);
+  loadTrack(currentTrack, false, true);
+});
+
+prevBtn.addEventListener('click', () => {
+  currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+  localStorage.setItem('currentTime', 0);
+  loadTrack(currentTrack, false, true);
+});
+
+trackSelector.addEventListener('change', (e) => {
+  currentTrack = parseInt(e.target.value);
+  localStorage.setItem('currentTime', 0);
+  loadTrack(currentTrack, false, true);
+});
+
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const source = audioCtx.createMediaElementSource(audio);
 const analyser = audioCtx.createAnalyser();
-analyser.fftSize = 256;
-const bufferLength = analyser.frequencyBinCount;
-const dataArray = new Uint8Array(bufferLength);
-const source = audioCtx.createMediaElementSource(audioElement);
 source.connect(analyser);
 analyser.connect(audioCtx.destination);
 
-
-const volumeControl = document.getElementById("volumeControl");
-
-
-function setVolumeCookie(volume) {
-  document.cookie = "audioVolume=" + volume + ";path=/;max-age=" + (60 * 60 * 24 * 30); 
-}
-
-
-function getVolumeCookie() {
-  const name = "audioVolume=";
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const ca = decodedCookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') c = c.substring(1);
-    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-  }
-  return "";
-}
-
-
-const savedVolume = getVolumeCookie();
-if (savedVolume) {
-  audioElement.volume = savedVolume;
-  volumeControl.value = savedVolume;
-} else {
-  audioElement.volume = 0.5; 
-  volumeControl.value = 0.5;
-}
-
-
-volumeControl.addEventListener("input", function () {
-  audioElement.volume = volumeControl.value;
-  setVolumeCookie(volumeControl.value);
-});
-
-
-function setAudioTimeCookie(currentTime) {
-  document.cookie = "audioTime=" + currentTime + ";path=/;max-age=" + (60 * 60 * 24 * 30); 
-}
-
-
-function getAudioTimeCookie() {
-  const name = "audioTime=";
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const ca = decodedCookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') c = c.substring(1);
-    if (c.indexOf(name) == 0) return parseFloat(c.substring(name.length, c.length));
-  }
-  return 0; 
-}
-
-
-window.addEventListener("beforeunload", function () {
-  setAudioTimeCookie(audioElement.currentTime);
-});
-
-function setSongCookie(song) {
-  document.cookie = "selectedSong=" + song + ";path=/;max-age=" + (60 * 60 * 24 * 30); 
-}
-
-function getSongCookie() {
-  const name = "selectedSong=";
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const ca = decodedCookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') c = c.substring(1);
-    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-  }
-  return "";
-}
+analyser.fftSize = 256;
+const bufferLength = analyser.frequencyBinCount;
+const dataArray = new Uint8Array(bufferLength);
 
 function animateVisualizer() {
-  analyser.getByteFrequencyData(dataArray);
-  let sum = 0;
-  for (let i = 0; i < bufferLength; i++) {
-    sum += dataArray[i];
-  }
-  let avg = sum / bufferLength;
-  let scale = 1 + (avg / 255) * 0.5; 
-  document.querySelector("img.profile").style.transform = "scale(" + scale + ")";
   requestAnimationFrame(animateVisualizer);
+  analyser.getByteFrequencyData(dataArray);
+  const avg = dataArray.reduce((a, b) => a + b, 0) / bufferLength;
+  const scale = 1 + (avg / 255);
+  visualizer.style.transform = `scale(${scale})`;
+  visualizer.querySelector("::before");
 }
 
-function startAudio() {
-  if (audioCtx.state === "suspended") { audioCtx.resume(); }
-  audioElement.play();
+audio.addEventListener('play', () => {
+  audioCtx.resume();
   animateVisualizer();
-}
-
-document.getElementById("enterOverlay").addEventListener("click", function () {
-  this.style.opacity = 0;
-  setTimeout(() => { this.style.display = "none"; }, 1000);
-  startAudio();
 });
 
-const savedSong = getSongCookie();
-if (savedSong) {
-  audioElement.src = savedSong;
-} else {
-  audioElement.src = "/music/talk down.mp3"; 
-}
-
-
-const savedAudioTime = getAudioTimeCookie();
-if (savedAudioTime) {
-  audioElement.currentTime = savedAudioTime;
-}
-
-mp3Selector.addEventListener("change", function () {
-  audioElement.src = this.value;
-  setSongCookie(this.value); 
-  audioElement.play();
+audio.addEventListener('ended', () => {
+  currentTrack = (currentTrack + 1) % tracks.length;
+  loadTrack(currentTrack, false, true);
 });
 
-startAudio();
+splash.addEventListener('click', () => {
+  splash.classList.add('hidden');
+  setTimeout(() => {
+    splash.style.display = 'none';
+    mainContainer.style.display = 'flex';
+  }, 700);
 
-function saveSelection() {
-  const selector = document.getElementById("mp3Selector");
-  localStorage.setItem("selectedSong", selector.value);
-}
-
-window.onload = function() {
-  const savedSong = localStorage.getItem("selectedSong");
-  if (savedSong) {
-      document.getElementById("mp3Selector").value = savedSong;
-  }
-}
+  loadTrack(currentTrack, true, true);
+});

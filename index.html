@@ -11,79 +11,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brunys</title>
-    <link rel="icon" type="image/x-icon" href="/images/pfp.ico">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tf7software/Font-Awesome-pro-cdn@main/css/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css">
-    <meta property="og:title" content="Brunys, BrunysLOL, Explo4er.">
-    <meta property="og:description" content="Learn about: animator, coder, and artist Brunys!">
-    <meta property="og:image" content="/images/pfp.jpg">
+    <meta property="og:title" content="Brunys">
+    <meta property="og:description" content="Hi I am Brunys! I am a HTML, CSS, JS, PYTHON, and LUA developer. 
+    I have made several projects like Unblocked Games, Music, Animation, and more stuff. My main links are the icons below. 
+    Im good at Art, Coding, and Animation. I also like venom. Thats really it. Have a nice life!">
+    <meta property="og:image" content="/images/grinch.jpg">
     <meta property="og:image:width" content="100">
     <meta property="og:image:height" content="100">
-    <meta property="og:url" content="https://brunys.site">
-    <meta name="theme-color" content="#fff">
-    <meta name="msapplication-TileColor" content="#fff">
+    <meta property="og:url" content="https://brunys.org">
+    <meta name="theme-color" content="#74bd14">
+    <meta name="msapplication-TileColor" content="#74bd14">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
     <div id="particles-js"></div>
   
-    <div class="enter-overlay" id="enterOverlay">
-      <p>Click to Enter</p>
-    </div>
-  
-    <div class="about-container">
-      <img class="profile" src="/images/pfp.jpg">
-      <h2>𝘽𝙧𝙪𝙣𝙮𝙨</h2>
-      <h4>Hi I am Brunys! I would say im pretty cool! I know the coding languages below, I have made several projects like Unblocked Games, Music, Animation, and more stuff. My main links are the icons below. Im good at Art, Coding, and Animation. Thats really it. Have a nice life! I also like venom.</h4>
-    
-      <div class="image-group">
-        <img src="/images/css.svg">
-        <img src="/images/js.png">
-        <img src="/images/python.png">
-        <img src="/images/html.png">
-        <img src="/images/lua.svg">
+    <div class="splash" id="splash">Click to Enter</div>
+
+  <div class="container" id="mainContainer">
+    <div class="profile">
+      <div class="visualizer-wrapper" id="visualizer">
+        <img src="/images/grinch.jpg" alt="Profile Picture" />
       </div>
-    
-      <hr>
-    
-      <div class="social-icons">
-          <a href="https://discord.brunys.org" target="_blank"><i class="fa-brands fa-discord"></i></a>
-          <a href="https://tiktok.com/@brunys.org" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="https://ixl.brunys.org" target="_blank"><i class="fa-solid fa-gamepad"></i></a>
-          <a href="https://www.youtube.com/@brunys1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-      </div>
-
-      <br>
-
-      <select id="mp3Selector" onchange="saveSelection()">
-        <option value="/music/talk down.mp3">Talk Down</option>
-        <option value="/music/mary.mp3">Mary</option>
-        <option value="/music/dryyoureyes.mp3">Dry Your Eyes</option>
-        <option value="/music/icantfixyou.mp3">I Cant Fix You</option>
-        <option value="/music/borntopwn.mp3">Born To Pwn</option>
-        <option value="/music/shucks.mp3">Aw Shucks</option>
-        <option value="/music/likehim.mp3">Like Him</option>
-        <option value="/music/alonetime.mp3">Alone Time</option>
-        <option value="/music/anewkindoflove.mp3">A New Kind Of Love</option>
-        <option value="/music/tekit.mp3">Tek It</option>
-        <option value="/music/memories.mp3">Memories</option>
-        <option value="/music/resonancexdoyalike.mp3">Resonance X Do Ya Like</option>
-        <option value="/music/imisstheoldpasha.mp3">I Miss The Old Pasha</option>
-        <option value="/music/fentation.mp3">Fentation</option>
-        <option value="/music/pride.mp3">Pride</option>
-        <option value="/music/neverseemeagain.mp3">Never See Me Again</option>
-    </select>
-    
-      <br>
-
-      <label for="volumeControl">Volume: </label>
-      <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
+      <h1>Brunys</h1>
+      <p>Hi I am Brunys! I am a HTML, CSS, JS, PYTHON, and LUA developer. 
+        I have made several projects like Unblocked Games, Music, Animation, and more stuff. My main links are the icons below. 
+        Im good at Art, Coding, and Animation. I also like venom. Thats really it. Have a nice life!</p>
     </div>
 
-    <audio id="bg-audio" src="/talk down.mp3" loop></audio>
+    <div class="social-icons">
+      <a href="https://discord.brunys.org" target="_blank"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://tiktok.com/@brunys.org" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://ixl.brunys.org" target="_blank"><i class="fa-solid fa-gamepad-modern"></i></a>
+      <a href="https://brunycraft.xyz" target="_blank"><i class="fa-solid fa-cube"></i></a>
+      <a href="https://www.youtube.com/@brunys1" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+
+    <div class="music-player">
+      <select id="trackSelector"></select>
+
+      <input type="range" id="progress" value="0" step="1" />
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="1"/>
+
+      <div class="controls">
+        <button id="prev"><i class="fa-solid fa-backward-fast"></i></button>
+        <button id="playPause"><i class="fa-regular fa-play-pause"></i></button>
+        <button id="next"><i class="fa-solid fa-forward-fast"></i></button>
+      </div>
+
+      <audio id="audio" crossorigin="anonymous"></audio>
+    </div>
+  </div>
 
     <script src="/script.js"></script> 
     
