@@ -38,7 +38,8 @@ const tracks = [
   { name: "🎵 I Miss The Old Pasha - Yung GMS", file: "/music/imisstheoldpasha.mp3" },
   { name: "🎵 Fentation - Szvy ft. Fent", file: "/music/fentation.mp3" },
   { name: "🎵 Pride - Kendrick Lamar", file: "/music/pride.mp3" },
-  { name: "🎵 Never See Me Again - Kanye West", file: "/music/neverseemeagain.mp3" }
+  { name: "🎵 Never See Me Again - Kanye West", file: "/music/neverseemeagain.mp3" },
+  { name: "🎵 Catchit - S3RL", file: "/music/catchit.mp3" }
 ];
 
 let currentTrack = parseInt(localStorage.getItem('currentTrack')) || 0;
