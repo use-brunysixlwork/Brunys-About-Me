@@ -23,23 +23,7 @@ const visualizer = document.getElementById('visualizer');
 const tracks = [
   { name: "🎵 Dry Your Eyes - Twikipedia", file: "/music/dryyoureyes.mp3" },
   { name: "🎵 Talk Down - Twikipedia", file: "/music/talk down.mp3" },
-  { name: "🎵 I Wanna Be The Guy - Twikipedia", file: "/music/iwannabetheguy.mp3" },
-  { name: "🎵 I Can't Decide - Scissor Sisters", file: "/music/icantdecide.mp3" },
-  { name: "🎵 Mary - Alex G", file: "/music/mary.mp3" },
-  { name: "🎵 I Can't Fix You - The Living Tombstone", file: "/music/icantfixyou.mp3" },
-  { name: "🎵 Born To Pwn - Twikipedia", file: "/music/borntopwn.mp3" },
-  { name: "🎵 Aw Shucks - Duccly", file: "/music/shucks.mp3" },
-  { name: "🎵 Like Him - Tyler, The Creator", file: "/music/likehim.mp3" },
-  { name: "🎵 Alone Time - Animated James", file: "/music/alonetime.mp3" },
-  { name: "🎵 A New Kind Of Love - Frou Frou", file: "/music/anewkindoflove.mp3" },
-  { name: "🎵 Tek It - Cafune", file: "/music/tekit.mp3" },
-  { name: "🎵 Memories - Maroon 5", file: "/music/memories.mp3" },
-  { name: "🎵 Resonance X Do Ya Like", file: "/music/resonancexdoyalike.mp3" },
-  { name: "🎵 I Miss The Old Pasha - Yung GMS", file: "/music/imisstheoldpasha.mp3" },
-  { name: "🎵 Fentation - Szvy ft. Fent", file: "/music/fentation.mp3" },
-  { name: "🎵 Pride - Kendrick Lamar", file: "/music/pride.mp3" },
-  { name: "🎵 Never See Me Again - Kanye West", file: "/music/neverseemeagain.mp3" },
-  { name: "🎵 Catchit - S3RL", file: "/music/catchit.mp3" }
+  { name: "🎵 I Wanna Be The Guy - Twikipedia", file: "/music/iwannabetheguy.mp3" }
 ];
 
 let currentTrack = parseInt(localStorage.getItem('currentTrack')) || 0;
